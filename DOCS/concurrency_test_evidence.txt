@@ -1,0 +1,20 @@
+=== CONCURRENCY STRESS TEST EVIDENCE REPORT ===
+Timestamp:                 2026-10-24T18:21:01.412020+00:00
+Target Provider:           Concurrency Specialist (ID: 1)
+Target Time:               2026-10-31T14:00:00+00:00
+Parallel Worker Threads:   10
+Successful Bookings (201): 1
+Protected Conflicts (409): 9
+Database Active Rows:      1
+
+=== DETAILED THREAD RESPONSES ===
+Request #01: Customer=concurrency.buyer.1@example.com | HTTP 201 | Detail={'id': 1, 'provider': {'id': 1, 'display_name': 'Concurrency Specialist', 'timezone': 'UTC', 'min_notice_minutes': 60, 'cancellation_hours': 24}, 'service': {'id': 1, 'name': 'Concurrency Target Consultation', 'duration_minutes': 30, 'buffer_minutes': 10, 'price_amount': '120.00', 'currency': 'USD'}, 'customer': {'id': 2, 'email': 'concurrency.buyer.1@example.com', 'role': 'customer', 'timezone': 'UTC', 'first_name': 'Buyer1', 'last_name': 'Test', 'date_joined': '2026-10-24T18:17:47.840625Z'}, 'start_at': '2026-10-31T14:00:00Z', 'end_at': '2026-10-31T14:30:00Z', 'status': 'confirmed', 'cancelled_at': None, 'reschedule_count': 0, 'idempotency_key': 'a8446598-e175-44f0-b819-7576d7285212', 'created_at': '2026-10-24T18:21:00.010145Z', 'updated_at': '2026-10-24T18:21:00.010250Z', 'events': [{'id': 1, 'event_type': 'created', 'old_values': None, 'new_values': {'end_at': '2026-10-31T14:30:00+00:00', 'status': 'confirmed', 'start_at': '2026-10-31T14:00:00+00:00', 'service_id': 1}, 'created_at': '2026-10-24T18:21:00.059135Z'}]}
+Request #02: Customer=concurrency.buyer.3@example.com | HTTP 409 | Detail={'error': 'slot_conflict', 'detail': 'This appointment slot has already been booked by another user. Please select an alternate slot.'}
+Request #03: Customer=concurrency.buyer.7@example.com | HTTP 409 | Detail={'error': 'slot_conflict', 'detail': 'This appointment slot has already been booked by another user. Please select an alternate slot.'}
+Request #04: Customer=concurrency.buyer.2@example.com | HTTP 409 | Detail={'error': 'slot_conflict', 'detail': 'This appointment slot has already been booked by another user. Please select an alternate slot.'}
+Request #05: Customer=concurrency.buyer.4@example.com | HTTP 409 | Detail={'error': 'slot_conflict', 'detail': 'This appointment slot has already been booked by another user. Please select an alternate slot.'}
+Request #06: Customer=concurrency.buyer.8@example.com | HTTP 409 | Detail={'error': 'slot_conflict', 'detail': 'This appointment slot has already been booked by another user. Please select an alternate slot.'}
+Request #07: Customer=concurrency.buyer.10@example.com | HTTP 409 | Detail={'error': 'slot_conflict', 'detail': 'This appointment slot has already been booked by another user. Please select an alternate slot.'}
+Request #08: Customer=concurrency.buyer.6@example.com | HTTP 409 | Detail={'error': 'slot_conflict', 'detail': 'This appointment slot has already been booked by another user. Please select an alternate slot.'}
+Request #09: Customer=concurrency.buyer.5@example.com | HTTP 409 | Detail={'error': 'slot_conflict', 'detail': 'This appointment slot has already been booked by another user. Please select an alternate slot.'}
+Request #10: Customer=concurrency.buyer.9@example.com | HTTP 409 | Detail={'error': 'slot_conflict', 'detail': 'This appointment slot has already been booked by another user. Please select an alternate slot.'}
